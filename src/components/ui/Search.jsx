@@ -7,6 +7,7 @@ export default function Search({ getQuery }) {
   const handleSearch = (q) => {
     setSearchTerm(q);
     getQuery(q);
+    console.log(q);
   };
 
   return (

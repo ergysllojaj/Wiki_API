@@ -3,7 +3,7 @@ import React from "react";
 export default function Results({ results, loading }) {
   return loading ? (
     <p>Loading...</p>
-  ) : (
+  ) : results.length ? (
     <ul>
       {results.map((result) => (
         <li key={result.pageid}>
@@ -20,5 +20,7 @@ export default function Results({ results, loading }) {
         </li>
       ))}
     </ul>
+  ) : (
+    <p>No data</p>
   );
 }

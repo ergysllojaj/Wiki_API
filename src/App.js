@@ -29,11 +29,13 @@ function App() {
   }, [query]);
 
   return (
-    <div className="container">
+    <>
       <Header />
-      <Search getQuery={(q) => setQuery(q)} />
-      <Results results={results} loading={loading} />
-    </div>
+      <div className="container">
+        <Search getQuery={(q) => setQuery(q)} />
+        <Results results={results} loading={loading} />
+      </div>
+    </>
   );
 }
 

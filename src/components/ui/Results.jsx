@@ -1,12 +1,15 @@
 import React from "react";
+import Loadingif from "./Loadingif";
 
 export default function Results({ results, loading }) {
   return loading ? (
-    <p>Loading...</p>
+    <Loadingif />
   ) : results.length ? (
     <ul>
       {results.map((result) => (
         <li key={result.pageid}>
+          <br />
+          <br />
           <h3>{result.title}</h3>
           <br />
           <p dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
@@ -14,13 +17,15 @@ export default function Results({ results, loading }) {
           <a href={`https://en.wikipedia.org/wiki/${result.title}`}>
             Read More
           </a>
-          <br /> <br />
-          <hr />
           <br />
+          <br />
+          <hr />
         </li>
       ))}
     </ul>
   ) : (
-    <p>No data</p>
+    <div className="noresults">
+      <p>No data</p>
+    </div>
   );
 }
